@@ -812,4 +812,27 @@ def registrar_venda(vendas):
     vendas.append(venda)
 
 def mostrar_vendas(vendas):
-    
+    if len(vendas) > 0:
+        i = 0
+        for venda in vendas:
+            i += 1
+            print(f"Venda {i}: ")
+            for chave, valor in venda.items():
+                print(f"- {chave}: {valor}")
+    else:
+        print("Nenhuma venda registrada!")
+
+def calcular_faturamento(vendas):
+    if len(vendas) > 0:
+        faturamento_venda = 0
+        valor_total = 0
+
+        for venda in vendas:
+            faturamento_venda = venda["Preço"] * venda["Quantidade"]
+            valor_total += faturamento_venda
+
+            print(f"{venda['Produto']} = R${venda['Preço']} x {venda['Quantidade']} = {faturamento_venda}")
+        print(f"- Faturamento total: {valor_total}")
+    else:
+            print("Nenhuma venda registrada!")    
+        
