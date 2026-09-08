@@ -780,3 +780,36 @@
 #                 print("Encerrando sistema...")
 #                 break
 # main()
+
+ # ==================================================
+# QUESTÃO 33 — Sistema de Vendas
+# ==================================================
+
+vendas = []
+
+def menu():
+    print()
+    print("======================")
+    print("1 - Registrar venda")
+    print("2 - Mostrar vendas")
+    print("3 - Calcular faturamento")
+    print("4 - Mostrar produto mais vendido")
+    print("5 - Mostrar categoria com maior faturamento")
+    print("6 - Buscar vendas por produto")
+    print("7 - Cancelar venda")
+    print("0 - Sair")
+    print("======================")
+    print()
+
+def registrar_venda(vendas):
+    venda = {}
+
+    venda["Produto"] = input("Nome do produto: ")
+    venda["Categoria"] = input("Categoria do produto: ")
+    venda["Preço"] = float(input("Valor do produto:"))
+    venda["Quantidade"] = int(input("Quantidade vendida: ")) 
+
+    vendas.append(venda)
+
+def mostrar_vendas(vendas):
+    
