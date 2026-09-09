@@ -838,14 +838,26 @@ def calcular_faturamento(vendas):
 
 def mais_vendido(vendas):
     if len(vendas) > 0:
-        mais_v = vendas[0]["Quantidade"]
-        produto_mais_v = vendas[0]["Produto"]
+        vendidos = {}
 
         for venda in vendas:
-            if venda["Quantidade"] > mais_v:
-                mais_v = venda["Quantidade"]
-                produto_mais_v = venda["Produto"]
-        print(f"O produto {produto_mais_v} foi o mais vendido, com {mais_v} vendas!")
+            quantidade = venda["Quantidade"]
+            produto = venda["Produto"]
+            if produto not in vendidos:
+                vendidos[produto] = quantidade
+            else:
+                vendidos[produto] += quantidade
+
+        chave, valor = list(vendidos.items())[0]
+
+        mais_v = valor
+
+        for chave, valor in vendidos.items():
+            if valor > maior:
+                maior = valor
+                nome = chave
+
+        print(f"O produto mais vendido foi o {nome}, com {maior} vendas"")
     else:
         print("Nenhuma venda registrada!") 
 
@@ -853,7 +865,7 @@ def categoria_faturamento(vendas):
     if len(vendas) > 0:
         faturamento_categorias = {}
         valor_venda = 0
-        
+
         for venda in vendas:
             categoria = venda["Categoria"]
             valor_venda = venda["Preço"] * venda["Quantidade"]
