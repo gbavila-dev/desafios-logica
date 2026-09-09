@@ -885,7 +885,8 @@ def buscar_vendas(vendas):
         for venda in vendas:
             if busca == venda["Produto"]:
                 encontrado = True
-                print(venda)
+                for chave, valor in venda.items():
+                    print(f"- {chave}: {valor}")
 
         if not encontrado:
             print("Produto não encontrado!")
