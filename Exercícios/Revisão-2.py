@@ -785,170 +785,170 @@
 # QUESTÃO 33 — Sistema de Vendas
 # ==================================================
 
-vendas = []
+# vendas = []
 
-def menu():
-    print()
-    print("======================")
-    print("1 - Registrar venda")
-    print("2 - Mostrar vendas")
-    print("3 - Calcular faturamento")
-    print("4 - Mostrar produto mais vendido")
-    print("5 - Mostrar categoria com maior faturamento")
-    print("6 - Buscar vendas por produto")
-    print("7 - Cancelar venda")
-    print("0 - Sair")
-    print("======================")
-    print()
+# def menu():
+#     print()
+#     print("======================")
+#     print("1 - Registrar venda")
+#     print("2 - Mostrar vendas")
+#     print("3 - Calcular faturamento")
+#     print("4 - Mostrar produto mais vendido")
+#     print("5 - Mostrar categoria com maior faturamento")
+#     print("6 - Buscar vendas por produto")
+#     print("7 - Cancelar venda")
+#     print("0 - Sair")
+#     print("======================")
+#     print()
 
-def registrar_venda(vendas):
-    venda = {}
+# def registrar_venda(vendas):
+#     venda = {}
 
-    venda["Produto"] = input("Nome do produto: ")
-    venda["Categoria"] = input("Categoria do produto: ")
-    venda["Preço"] = float(input("Valor do produto:"))
-    venda["Quantidade"] = int(input("Quantidade vendida: ")) 
+#     venda["Produto"] = input("Nome do produto: ")
+#     venda["Categoria"] = input("Categoria do produto: ")
+#     venda["Preço"] = float(input("Valor do produto:"))
+#     venda["Quantidade"] = int(input("Quantidade vendida: ")) 
 
-    vendas.append(venda)
+#     vendas.append(venda)
 
-def mostrar_vendas(vendas):
-    if len(vendas) > 0:
-        i = 0
-        for venda in vendas:
-            i += 1
-            print(f"Venda {i}: ")
-            for chave, valor in venda.items():
-                print(f"- {chave}: {valor}")
-    else:
-        print("Nenhuma venda registrada!")
+# def mostrar_vendas(vendas):
+#     if len(vendas) > 0:
+#         i = 0
+#         for venda in vendas:
+#             i += 1
+#             print(f"Venda {i}: ")
+#             for chave, valor in venda.items():
+#                 print(f"- {chave}: {valor}")
+#     else:
+#         print("Nenhuma venda registrada!")
 
-def calcular_faturamento(vendas):
-    if len(vendas) > 0:
-        faturamento_venda = 0
-        valor_total = 0
+# def calcular_faturamento(vendas):
+#     if len(vendas) > 0:
+#         faturamento_venda = 0
+#         valor_total = 0
 
-        for venda in vendas:
-            faturamento_venda = venda["Preço"] * venda["Quantidade"]
-            valor_total += faturamento_venda
+#         for venda in vendas:
+#             faturamento_venda = venda["Preço"] * venda["Quantidade"]
+#             valor_total += faturamento_venda
 
-            print(f"{venda['Produto']} = R${venda['Preço']} x {venda['Quantidade']} = {faturamento_venda}")
-        print(f"- Faturamento total: {valor_total}")
-    else:
-        print("Nenhuma venda registrada!")    
+#             print(f"{venda['Produto']} = R${venda['Preço']} x {venda['Quantidade']} = {faturamento_venda}")
+#         print(f"- Faturamento total: {valor_total}")
+#     else:
+#         print("Nenhuma venda registrada!")    
 
-def mais_vendido(vendas):
-    if len(vendas) > 0:
-        vendidos = {}
+# def mais_vendido(vendas):
+#     if len(vendas) > 0:
+#         vendidos = {}
 
-        for venda in vendas:
-            quantidade = venda["Quantidade"]
-            produto = venda["Produto"]
-            if produto not in vendidos:
-                vendidos[produto] = quantidade
-            else:
-                vendidos[produto] += quantidade
+#         for venda in vendas:
+#             quantidade = venda["Quantidade"]
+#             produto = venda["Produto"]
+#             if produto not in vendidos:
+#                 vendidos[produto] = quantidade
+#             else:
+#                 vendidos[produto] += quantidade
 
-        chave, valor = list(vendidos.items())[0]
+#         chave, valor = list(vendidos.items())[0]
 
-        mais_v = valor
+#         mais_v = valor
 
-        for chave, valor in vendidos.items():
-            if valor > maior:
-                maior = valor
-                nome = chave
+#         for chave, valor in vendidos.items():
+#             if valor > maior:
+#                 maior = valor
+#                 nome = chave
 
-        print(f"O produto mais vendido foi o {nome}, com {maior} vendas"")
-    else:
-        print("Nenhuma venda registrada!") 
+#         print(f"O produto mais vendido foi o {nome}, com {maior} vendas"")
+#     else:
+#         print("Nenhuma venda registrada!") 
 
-def categoria_faturamento(vendas):
-    if len(vendas) > 0:
-        faturamento_categorias = {}
-        valor_venda = 0
+# def categoria_faturamento(vendas):
+#     if len(vendas) > 0:
+#         faturamento_categorias = {}
+#         valor_venda = 0
 
-        for venda in vendas:
-            categoria = venda["Categoria"]
-            valor_venda = venda["Preço"] * venda["Quantidade"]
-            if categoria not in faturamento_categorias:
-                faturamento_categorias[categoria] = valor_venda
-            else:
-                faturamento_categorias[categoria] += valor_venda
+#         for venda in vendas:
+#             categoria = venda["Categoria"]
+#             valor_venda = venda["Preço"] * venda["Quantidade"]
+#             if categoria not in faturamento_categorias:
+#                 faturamento_categorias[categoria] = valor_venda
+#             else:
+#                 faturamento_categorias[categoria] += valor_venda
 
-        chave, valor = list(faturamento_categorias.items())[0]
+#         chave, valor = list(faturamento_categorias.items())[0]
 
-        maior = valor
-        nome_categoria = chave
+#         maior = valor
+#         nome_categoria = chave
 
-        for chave, valor in faturamento_categorias.items():
-            if valor > maior:
-                maior = valor
-                nome_categoria = chave
+#         for chave, valor in faturamento_categorias.items():
+#             if valor > maior:
+#                 maior = valor
+#                 nome_categoria = chave
 
-        print(f"Categoria com maior faturamento: {nome_categoria} que faturou R${maior}")
+#         print(f"Categoria com maior faturamento: {nome_categoria} que faturou R${maior}")
 
-    else:
-        print("Nenhuma venda registrada!") 
+#     else:
+#         print("Nenhuma venda registrada!") 
 
-def buscar_vendas(vendas):
-    if len(vendas) > 0:
-        busca = input("Nome do produto: ")
-        encontrado = False
+# def buscar_vendas(vendas):
+#     if len(vendas) > 0:
+#         busca = input("Nome do produto: ")
+#         encontrado = False
 
-        for venda in vendas:
-            if busca == venda["Produto"]:
-                encontrado = True
-                for chave, valor in venda.items():
-                    print(f"- {chave}: {valor}")
+#         for venda in vendas:
+#             if busca == venda["Produto"]:
+#                 encontrado = True
+#                 for chave, valor in venda.items():
+#                     print(f"- {chave}: {valor}")
 
-        if not encontrado:
-            print("Produto não encontrado!")
-    else:
-        print("Nenhuma venda registrada!")          
+#         if not encontrado:
+#             print("Produto não encontrado!")
+#     else:
+#         print("Nenhuma venda registrada!")          
 
-def cancelar_venda(vendas):
-    if len(vendas) > 0:
-        busca = input("Nome do produto: ")
-        encontrado = False
+# def cancelar_venda(vendas):
+#     if len(vendas) > 0:
+#         busca = input("Nome do produto: ")
+#         encontrado = False
 
-        for venda in vendas:
-            if busca == venda["Produto"]:
-                encontrado = True
+#         for venda in vendas:
+#             if busca == venda["Produto"]:
+#                 encontrado = True
 
-                vendas.remove(venda)
-                print("Venda cancelada com sucesso!")
+#                 vendas.remove(venda)
+#                 print("Venda cancelada com sucesso!")
 
-                break
+#                 break
 
-        if not encontrado:
-            print("Produto não encontrado!")
-    else:
-        print("Nenhuma venda registrada!")
+#         if not encontrado:
+#             print("Produto não encontrado!")
+#     else:
+#         print("Nenhuma venda registrada!")
 
-def main():
-    while True:
-        menu()
-        try:
-            opcao = int(input("Insira uma opção: "))
-        except ValueError:
-            print("Insira um valor válido!")
-            continue
+# def main():
+#     while True:
+#         menu()
+#         try:
+#             opcao = int(input("Insira uma opção: "))
+#         except ValueError:
+#             print("Insira um valor válido!")
+#             continue
 
-        match opcao:
-            case 1:
-                registrar_venda(vendas)
-            case 2:
-                mostrar_vendas(vendas)
-            case 3:
-                calcular_faturamento(vendas)
-            case 4:
-                mais_vendido(vendas)
-            case 5:
-                categoria_faturamento(vendas)
-            case 6:
-                buscar_vendas(vendas)
-            case 7:
-                cancelar_venda(vendas)
-            case 0:
-                print("Encerrando sistema...")
-                break
-main()
+#         match opcao:
+#             case 1:
+#                 registrar_venda(vendas)
+#             case 2:
+#                 mostrar_vendas(vendas)
+#             case 3:
+#                 calcular_faturamento(vendas)
+#             case 4:
+#                 mais_vendido(vendas)
+#             case 5:
+#                 categoria_faturamento(vendas)
+#             case 6:
+#                 buscar_vendas(vendas)
+#             case 7:
+#                 cancelar_venda(vendas)
+#             case 0:
+#                 print("Encerrando sistema...")
+#                 break
+# main()
