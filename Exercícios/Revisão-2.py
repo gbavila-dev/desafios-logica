@@ -834,5 +834,63 @@ def calcular_faturamento(vendas):
             print(f"{venda['Produto']} = R${venda['Preço']} x {venda['Quantidade']} = {faturamento_venda}")
         print(f"- Faturamento total: {valor_total}")
     else:
-            print("Nenhuma venda registrada!")    
+        print("Nenhuma venda registrada!")    
+
+def mais_vendido(vendas):
+    if len(vendas) > 0:
+        mais_v = vendas[0]["Quantidade"]
+        produto_mais_v = vendas[0]["Produto"]
+
+        for venda in vendas:
+            if venda["Quantidade"] > mais_v:
+                mais_v = venda["Quantidade"]
+                produto_mais_v = venda["Produto"]
+        print(f"O produto {produto_mais_v} foi o mais vendido, com {mais_v} vendas!")
+    else:
+        print("Nenhuma venda registrada!") 
+
+def categoria_faturamento(vendas):
+    if len(vendas) > 0:
+        faturamento_categorias = {}
+        valor_venda = 0
         
+        for venda in vendas:
+            categoria = venda["Categoria"]
+            valor_venda = venda["Preço"] * venda["Quantidade"]
+            if categoria not in faturamento_categorias:
+                faturamento_categorias[categoria] = valor_venda
+            else:
+                faturamento_categorias[categoria] += valor_venda
+
+        chave, valor = list(faturamento_categorias.items())[0]
+
+        maior = valor
+        nome_categoria = chave
+
+        for chave, valor in faturamento_categorias.items():
+            if valor > maior:
+                maior = valor
+                nome_categoria = chave
+
+        print(f"Categoria com maior faturamento: {nome_categoria} que faturou R${maior}")
+
+    else:
+        print("Nenhuma venda registrada!") 
+
+def buscar_vendas(vendas):
+    if len(vendas) > 0:
+        busca = input("Nome do produto: ")
+        encontrado = False
+
+        for venda in vendas:
+            if busca == venda["Produto"]:
+                encontrado = True
+                print(venda)
+
+        if not encontrado:
+            print("Produto não encontrado!")
+    else:
+        print("Nenhuma venda registrada!")          
+
+def cancelar_venda(vendas):
+    
