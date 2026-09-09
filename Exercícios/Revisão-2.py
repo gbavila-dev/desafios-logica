@@ -893,4 +893,49 @@ def buscar_vendas(vendas):
         print("Nenhuma venda registrada!")          
 
 def cancelar_venda(vendas):
-    
+    if len(vendas) > 0:
+        busca = input("Nome do produto: ")
+        encontrado = False
+
+        for venda in vendas:
+            if busca == venda["Produto"]:
+                encontrado = True
+
+                vendas.remove(venda)
+                print("Venda cancelada com sucesso!")
+
+                break
+
+        if not encontrado:
+            print("Produto não encontrado!")
+    else:
+        print("Nenhuma venda registrada!")
+
+def main():
+    while True:
+        menu()
+        try:
+            opcao = int(input("Insira uma opção: "))
+        except ValueError:
+            print("Insira um valor válido!")
+            continue
+
+        match opcao:
+            case 1:
+                registrar_venda(vendas)
+            case 2:
+                mostrar_vendas(vendas)
+            case 3:
+                calcular_faturamento(vendas)
+            case 4:
+                mais_vendido(vendas)
+            case 5:
+                categoria_faturamento(vendas)
+            case 6:
+                buscar_vendas(vendas)
+            case 7:
+                cancelar_venda(vendas)
+            case 0:
+                print("Encerrando sistema...")
+                break
+main()
