@@ -1042,7 +1042,7 @@
 # print(resultado)
 
 # ==================================================
-# QUESTÃO 36 — Resumo por produto
+# QUESTÃO 36/37 — Resumo por produto
 # ==================================================
 
 vendas = [
@@ -1075,3 +1075,13 @@ def resumo_produtos(vendas):
 resultado = resumo_produtos(vendas)
 print(resultado)            
 
+def produto_mais_vendido(resumo):
+    maior_qntd = 0
+    maior_nome = ""
+
+    for nome in resumo:
+        if resumo[nome]["quantidade"] > maior_qntd:
+            maior_qntd = resumo[nome]["quantidade"]
+            maior_nome = nome
+
+    return maior_nome
