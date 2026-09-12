@@ -952,3 +952,43 @@
 #                 print("Encerrando sistema...")
 #                 break
 # main()
+
+# ==================================================
+# QUESTÃO 34 — Relatório
+# ==================================================
+
+vendas = [
+    {"produto": "Notebook", "categoria": "Eletrônicos", "valor": 3500},
+    {"produto": "Mouse", "categoria": "Eletrônicos", "valor": 100},
+    {"produto": "Cadeira", "categoria": "Móveis", "valor": 800},
+    {"produto": "Teclado", "categoria": "Eletrônicos", "valor": 250},
+    {"produto": "Mesa", "categoria": "Móveis", "valor": 1200},
+]
+
+def relatorio_vendas(vendas):
+    por_categoria = {}
+    valor_total = 0
+    maior_valor = 0
+
+    for venda in vendas:
+        valor_total += venda["valor"]
+        if venda["valor"] > maior_valor:
+            maior_valor = venda["valor"]
+            nome_produto = venda["produto"]
+
+    for venda in vendas:
+        categoria = venda["categoria"]
+
+        if categoria not in por_categoria:
+            por_categoria[categoria] = venda["valor"]
+        else:
+            por_categoria[categoria] += venda["valor"]
+
+    return {
+        "total": valor_total,
+        "produto_mais_caro": nome_produto,
+        "por_categoria": por_categoria
+    }
+
+resultado = relatorio_vendas(vendas)
+print(resultado)
