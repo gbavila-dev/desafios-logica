@@ -997,46 +997,46 @@
 # QUESTÃO 35 — Análise de vendas
 # ==================================================
 
-vendas = [
-    {"produto": "Notebook", "categoria": "Eletrônicos", "valor": 3500},
-    {"produto": "Mouse", "categoria": "Eletrônicos", "valor": 100},
-    {"produto": "Cadeira", "categoria": "Móveis", "valor": 800},
-    {"produto": "Teclado", "categoria": "Eletrônicos", "valor": 250},
-    {"produto": "Mesa", "categoria": "Móveis", "valor": 1200},
-    {"produto": "Monitor", "categoria": "Eletrônicos", "valor": 1800},
-]
+# vendas = [
+#     {"produto": "Notebook", "categoria": "Eletrônicos", "valor": 3500},
+#     {"produto": "Mouse", "categoria": "Eletrônicos", "valor": 100},
+#     {"produto": "Cadeira", "categoria": "Móveis", "valor": 800},
+#     {"produto": "Teclado", "categoria": "Eletrônicos", "valor": 250},
+#     {"produto": "Mesa", "categoria": "Móveis", "valor": 1200},
+#     {"produto": "Monitor", "categoria": "Eletrônicos", "valor": 1800},
+# ]
 
-def analisar_vendas(vendas):
-    quantidade = 0
-    valor_t = 0
-    maior_valor = vendas[0]["valor"]
-    menor_valor = vendas[0]["valor"]
-    media = 0
+# def analisar_vendas(vendas):
+#     quantidade = 0
+#     valor_t = 0
+#     maior_valor = vendas[0]["valor"]
+#     menor_valor = vendas[0]["valor"]
+#     media = 0
 
-    for venda in vendas:
-        quantidade += 1
-        valor_t += venda["valor"]
+#     for venda in vendas:
+#         quantidade += 1
+#         valor_t += venda["valor"]
 
-        if venda["valor"] > maior_valor:
-            maior_valor = venda["valor"]
+#         if venda["valor"] > maior_valor:
+#             maior_valor = venda["valor"]
 
-        if venda["valor"] < menor_valor:
-            menor_valor = venda["valor"]
+#         if venda["valor"] < menor_valor:
+#             menor_valor = venda["valor"]
 
-    media = valor_t / quantidade
-    acima_media = []
+#     media = valor_t / quantidade
+#     acima_media = []
 
-    for venda in vendas:
-        if venda["valor"] > media:
-            acima_media.append(venda)
+#     for venda in vendas:
+#         if venda["valor"] > media:
+#             acima_media.append(venda)
 
-    return {
-        "quantidade": quantidade,
-        "maior": maior_valor,
-        "menor": menor_valor,
-        "media": media,
-        "acima_media": acima_media
-    }
+#     return {
+#         "quantidade": quantidade,
+#         "maior": maior_valor,
+#         "menor": menor_valor,
+#         "media": media,
+#         "acima_media": acima_media
+#     }
 
-resultado = analisar_vendas(vendas)
-print(resultado)
+# resultado = analisar_vendas(vendas)
+# print(resultado)
