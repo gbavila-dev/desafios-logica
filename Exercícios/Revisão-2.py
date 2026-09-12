@@ -1045,43 +1045,43 @@
 # QUESTÃO 36/37 — Resumo por produto
 # ==================================================
 
-vendas = [
-    {"produto": "Mouse", "categoria": "Eletrônicos", "quantidade": 3, "valor": 100},
-    {"produto": "Teclado", "categoria": "Eletrônicos", "quantidade": 2, "valor": 250},
-    {"produto": "Mouse", "categoria": "Eletrônicos", "quantidade": 5, "valor": 100},
-    {"produto": "Cadeira", "categoria": "Móveis", "quantidade": 1, "valor": 800},
-    {"produto": "Teclado", "categoria": "Eletrônicos", "quantidade": 4, "valor": 250},
-    {"produto": "Cadeira", "categoria": "Móveis", "quantidade": 2, "valor": 800},
-]
+# vendas = [
+#     {"produto": "Mouse", "categoria": "Eletrônicos", "quantidade": 3, "valor": 100},
+#     {"produto": "Teclado", "categoria": "Eletrônicos", "quantidade": 2, "valor": 250},
+#     {"produto": "Mouse", "categoria": "Eletrônicos", "quantidade": 5, "valor": 100},
+#     {"produto": "Cadeira", "categoria": "Móveis", "quantidade": 1, "valor": 800},
+#     {"produto": "Teclado", "categoria": "Eletrônicos", "quantidade": 4, "valor": 250},
+#     {"produto": "Cadeira", "categoria": "Móveis", "quantidade": 2, "valor": 800},
+# ]
 
-def resumo_produtos(vendas):
-    resumo = {}
+# def resumo_produtos(vendas):
+#     resumo = {}
 
-    for venda in vendas:
-        nome = venda["produto"]
-        quantidade = venda["quantidade"]
-        faturamento = quantidade * venda["valor"]
-        if nome not in resumo:
-            resumo[nome] = {
-                "quantidade": quantidade,
-                "faturamento": faturamento
-            }
-        else:
-            resumo[nome]["quantidade"] += quantidade
-            resumo[nome]["faturamento"] += faturamento
+#     for venda in vendas:
+#         nome = venda["produto"]
+#         quantidade = venda["quantidade"]
+#         faturamento = quantidade * venda["valor"]
+#         if nome not in resumo:
+#             resumo[nome] = {
+#                 "quantidade": quantidade,
+#                 "faturamento": faturamento
+#             }
+#         else:
+#             resumo[nome]["quantidade"] += quantidade
+#             resumo[nome]["faturamento"] += faturamento
 
-    return resumo
+#     return resumo
 
-resultado = resumo_produtos(vendas)
-print(resultado)            
+# resultado = resumo_produtos(vendas)
+# print(resultado)            
 
-def produto_mais_vendido(resumo):
-    maior_qntd = 0
-    maior_nome = ""
+# def produto_mais_vendido(resumo):
+#     maior_qntd = 0
+#     maior_nome = ""
 
-    for nome in resumo:
-        if resumo[nome]["quantidade"] > maior_qntd:
-            maior_qntd = resumo[nome]["quantidade"]
-            maior_nome = nome
+#     for nome in resumo:
+#         if resumo[nome]["quantidade"] > maior_qntd:
+#             maior_qntd = resumo[nome]["quantidade"]
+#             maior_nome = nome
 
-    return maior_nome
+#     return maior_nome
