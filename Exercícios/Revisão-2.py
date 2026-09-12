@@ -1040,3 +1040,38 @@
 
 # resultado = analisar_vendas(vendas)
 # print(resultado)
+
+# ==================================================
+# QUESTÃO 36 — Resumo por produto
+# ==================================================
+
+vendas = [
+    {"produto": "Mouse", "categoria": "Eletrônicos", "quantidade": 3, "valor": 100},
+    {"produto": "Teclado", "categoria": "Eletrônicos", "quantidade": 2, "valor": 250},
+    {"produto": "Mouse", "categoria": "Eletrônicos", "quantidade": 5, "valor": 100},
+    {"produto": "Cadeira", "categoria": "Móveis", "quantidade": 1, "valor": 800},
+    {"produto": "Teclado", "categoria": "Eletrônicos", "quantidade": 4, "valor": 250},
+    {"produto": "Cadeira", "categoria": "Móveis", "quantidade": 2, "valor": 800},
+]
+
+def resumo_produtos(vendas):
+    resumo = {}
+
+    for venda in vendas:
+        nome = venda["produto"]
+        quantidade = venda["quantidade"]
+        faturamento = quantidade * venda["valor"]
+        if nome not in resumo:
+            resumo[nome] = {
+                "quantidade": quantidade,
+                "faturamento": faturamento
+            }
+        else:
+            resumo[nome]["quantidade"] += quantidade
+            resumo[nome]["faturamento"] += faturamento
+
+    return resumo
+
+resultado = resumo_produtos(vendas)
+print(resultado)            
+
